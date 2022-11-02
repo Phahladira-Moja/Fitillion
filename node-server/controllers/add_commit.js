@@ -1,8 +1,5 @@
 export default function makeAddCommit({ addCommit }) {
     return async function addCommitController (httpRequest) {
-        console.log(httpRequest.body)
-
-
         const headers = {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
