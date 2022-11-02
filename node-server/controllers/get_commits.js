@@ -10,10 +10,7 @@ export default function makeGetCommit({ getCommits }) {
           const commits = await getCommits({
             repo: httpRequest.query.repo,
             owner: httpRequest.query.owner,
-            commitsPerPage: httpRequest.query.commitsPerPage,
-            pageNumber: httpRequest.query.pageNumber,
-            commitsPerPage: httpRequest.query.commitsPerPage,
-            
+            pageNumber: httpRequest.query.pageNumber,            
           })
           return {
             headers,

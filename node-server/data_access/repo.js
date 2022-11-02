@@ -1,4 +1,4 @@
-export default function makeCommitsRepo({ octokit, fetch }) {
+export default function makeCommitsRepo({ fetch }) {
 
     return Object.freeze({
         addCommit,
@@ -11,14 +11,13 @@ export default function makeCommitsRepo({ octokit, fetch }) {
         repo = "Spoon-Knife", 
         owner = "octocat",
         pageNumber = 1, 
-        commitsPerPage = 10,
     }) {
-        const result = await octokit.request(`GET /repos/{owner}/{repo}/commits?page=${pageNumber}&per_page=${commitsPerPage}`, {
-            owner: owner,
-            repo: repo,
-          });
-    
-        return result.data
+        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=5&page=${pageNumber}`, {
+            method: 'GET',
+        });
+
+        const result = await response.json();
+        return result
     }
 
     async function addCommit({

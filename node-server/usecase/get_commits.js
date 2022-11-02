@@ -3,14 +3,12 @@ export default function makeListCommits({commitsDB, makeCommit}) {
         repo,
         owner,
         pageNumber, 
-        commitsPerPage
     }) {
 
         const commits = await commitsDB.getCommits({
             repo,
             owner,
             pageNumber, 
-            commitsPerPage
         });
 
         const commitsArray = [];
